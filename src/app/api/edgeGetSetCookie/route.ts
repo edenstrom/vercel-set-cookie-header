@@ -8,7 +8,7 @@ export const GET = async (req: NextRequest) => {
     credentials: "include",
   });
 
-  const setCookies = (sessionResponse.headers as any).getSetCookie?.();
+  const setCookies = (sessionResponse.headers as any).getSetCookie();
 
   const response = NextResponse.json({
     route: "????",
