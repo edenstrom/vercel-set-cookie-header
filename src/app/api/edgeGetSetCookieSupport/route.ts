@@ -9,7 +9,9 @@ export const GET = async (req: NextRequest) => {
     credentials: "include",
   });
 
-  const hasSupport = "getSetCookie" in sessionResponse.headers;
+  const hasSupport =
+    "getSetCookie" in sessionResponse.headers &&
+    typeof (sessionResponse.headers as any).getSetCookie === "function";
 
   return NextResponse.json({ hasSupport });
 };
